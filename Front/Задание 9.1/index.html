@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Форма заказа "Сандали"</title>
+</head>
+<body>
+	<h1>Форма заказа "Сандали"</h1>
+	<p>Хотите приобрести такие сандали, которых ни у кого нет?</p>
+	<form action = "https://www.learningwebdesign.com/contest.php" method = "post ">
+		<div id="AllInfo">
+			<h3>Сведения о заказчике</h3>
+			<p>
+				<label>Имя</label>
+				<input type="text" name="name">
+			</p>
+		
+			<p>
+				<label>Email</label>		
+				<input type="email" name="email">
+			</p>
+
+			<p>
+				<label>Телефон</label>		
+				<input type="tel" name="phone">
+			</p>
+
+			<p>
+				<label>Я хочу такие сандали, потому что...</label>
+				<br>
+				<textarea name="story" maxlength="330" placeholder ="Не более 330 символов........." wrap="true"></textarea>
+			</p>
+		</div>
+
+		<h2>Выберите дизайн сандалей:</h2>
+		<div>
+			<fieldset>
+				<legend>Характеристики</legend>
+				<div>
+					<fieldset>
+						<legend>Выберите цвет <i>(один из списка)</i></legend>
+						<p>
+							<input type="radio" name="color" id="Red">
+							<label for ="Red">Красный</label>
+						</p>
+						<p>
+							<input type="radio" name="color" id = "Gren">
+							<label for ="Gren">Зеленый</label>
+						</p>
+						<p>
+							<input type="radio" name="color" id = "Blue">
+							<label for ="Blue">Зеленый</label>
+						</p>
+					</fieldset>
+				</div>
+				<div>
+					<fieldset>
+						<legend>Дополнительно <i>(выберите 1 или несколько пунктов)</i></legend>
+						<p>
+							<input type="checkbox" name="features[]" id="CbxGl" >
+							<label for ="CbxGl">Глянцевые ободки</label>
+						</p>
+						<p>
+							<input type="checkbox" name="features[]" id="CbxMet" checked="true">
+							<label for ="CbxMet">Металлическая бляшка</label>
+						</p>
+						<p>
+							<input type="checkbox" name="features[]" id="CbxMp" >
+							<label for ="CbxMp">Mp3 проигрыватель</label>
+						</p>
+					</fieldset>
+				</div>
+				<div>
+					<fieldset>
+						<legend>Размер</legend>
+						<p>
+							<select name="size" size="1">
+								<option>33</option>
+								<option>34</option>
+								<option>35</option>
+								<option>36</option>
+								<option>37</option>
+								<option>38</option>
+								<option>39</option>
+								<option>40</option>
+							</select>
+						</p>
+					</fieldset>
+				</div>
+			</fieldset>
+		</div>
+
+		<input type="submit" name="Принять">
+		<input type="reset" name="Отклонить">
+	</form>
+	
+
+</body>
+</html>
