@@ -108,10 +108,10 @@ h2
 	background-position: center;
 }
 
-#Item_SweetHome
+#Item_Hotel
 {
 	background-image:linear-gradient(to bottom, rgba(9,7,20,0.9), 
-					  rgba(37,33,84,0.9)),url(images/SweetHome.jpg);
+					  rgba(37,33,84,0.9)),url(images/Hotel.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -144,8 +144,17 @@ a:hover
 
 footer
 {
-	border-top-style: solid;
-  	border-top-color: #7d831e;
-  	border-top-width: 2px;
+	color: white;
+	position: absolute;
+	height: 10%;
+	width: 100%;
+  	background-image:  linear-gradient(to top, rgba(9,7,20),rgba(37,33,84,0.9));
 }
+
+#Autor
+{
+	font-size: 1.5em;
+	position:relative;
+	margin-top: 1.5em;
+	text-align: center;
 }
