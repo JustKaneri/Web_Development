@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a = "10";
+		var b = 11;
+		var r = Sqr(a);
+		for (var i = r.length - 1; i >= 0; i--) {
+			document.write(r[i]+'\r\n');
+		}
+
+		function Sqr(x)
+		{
+			var mas = new Array();
+
+			for (var i = 0; i <= 5; i++) 
+			{
+				mas[i] = i*i;
+			}
+
+			return mas;
+		}
+
+	</script>
+</body>
+</html>
