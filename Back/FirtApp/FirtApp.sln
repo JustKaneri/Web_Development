@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FistAppMVC", "FistAppMVC\FistAppMVC.csproj", "{36A80F98-29D7-4E8E-AECD-84E1B685ECAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36A80F98-29D7-4E8E-AECD-84E1B685ECAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A80F98-29D7-4E8E-AECD-84E1B685ECAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A80F98-29D7-4E8E-AECD-84E1B685ECAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A80F98-29D7-4E8E-AECD-84E1B685ECAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9FE1F34-7FFB-4F40-BD9A-0D8350F05B13}
+	EndGlobalSection
+EndGlobal

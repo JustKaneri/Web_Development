@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Asp_Core_Переадрисация/1.0.0": {
+        "runtime": {
+          "Asp_Core_Переадрисация.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Asp_Core_Переадрисация/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
