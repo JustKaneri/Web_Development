@@ -1,0 +1,46 @@
+1) Требуемые библиотеки 
+    Microsoft.EntityFrameworkCore
+    Microsoft.EntityFrameworkCore.SqlSerev
+    Microsoft.EntityFrameworkCore.Tools
+
+2) Алгоритм подключения/создания бд с использованием EnityFramework
+	2.1) Установка библиотеки Microsoft.EntityFrameworkCore
+	2.2) Создание класс модели, представляющай таблицу 
+	     Пример:         
+		[Key]
+        	public int Id { get; set; }
+
+        	[Required]
+        	public string Name { get; set; }
+
+        	public int DisplayOrder { get; set; }
+
+        	public DateTime CreateDateCategory { get; set; } = DateTime.Now;
+	 
+	Атрибут Key - первичный ключ
+	Атрибут Required - уникальное поле
+
+	2.2) Открыть файл appsetings.json - Добавить строку подключения
+		"ConnectionStrings": {
+    		"DefaultConnection": "Server= <Имя сервера>; Database=<Имя баззы данных>;Trusted_Connection =True;"
+  		}
+
+	2.3) Создание контекста - создание папки Data - создание класса
+	наследующиего класс DbContext
+	Пример содержания класса:
+		public ApplicationDbContext(DbContextOptions<Сам класс> options):base(options)
+        	{ 
+        	}
+
+        	public DbSet<Имя таблицы> Categories { get; set; }
+	
+	2.4) Указываем строку подключения контексту в файле Program.cs
+	builder.Services.AddDbContext<Наш контекс>(options => options.UseSqlServer(
+    		builder.Configuration.GetConnectionString("DefaultConnection")
+	));
+
+	2.5) Установка библиотеки  Microsoft.EntityFrameworkCore.Tools
+	2.6) Tools - Nuget - console
+	2.7) Вводим команду add-migration <Имя> - для того что бы создать таблицу в БД
+	2.8) Вводим команду update-database - для внесения изменений на сервере
+	
