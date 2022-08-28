@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VM8qeR+QrPGkWA/320+zw7mQMoULyGJMgI2FRlo/gw4=",
+  "Hash": "uX6BEPYZPE153VlqWEQ5grfNMT4roxLWhNRoF3G4n4A=",
   "Source": "FistAppMVC",
   "BasePath": "_content/FistAppMVC",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "A:\\Обучение Web\\Back\\FirtApp\\FistAppMVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\FistAppMVC.bundle.scp.css"
+    },
+    {
+      "Identity": "A:\\Обучение Web\\Back\\FirtApp\\FistAppMVC\\wwwroot\\css\\main_style.css",
+      "SourceId": "FistAppMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\Обучение Web\\Back\\FirtApp\\FistAppMVC\\wwwroot\\",
+      "BasePath": "_content/FistAppMVC",
+      "RelativePath": "css/main_style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\main_style.css"
     },
     {
       "Identity": "A:\\Обучение Web\\Back\\FirtApp\\FistAppMVC\\wwwroot\\css\\site.css",
