@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PostList from './components/PostList';
+import MyButton from './components/UI/button/MyButton';
+import MyInput from './components/UI/input/MyInput';
 import './styles/App.css';
 
 function App() {
@@ -8,15 +10,38 @@ function App() {
                                     {id: 3, title:"C++",body: "discription" },
                                     {id: 4, title:"Rybu",body: "discription" }]);
 
-  const [posts2,setPost2] = useState([{id: 1, title:"Python",body: "discription" },
-                                    {id: 2, title:"Python",body: "discription" },
-                                    {id: 3, title:"Python",body: "discription" },
-                                    {id: 4, title:"Python",body: "discription" }])
+  const [title,setTitle] = useState('');
+  const [body,setBody] = useState('');
+  
+  const addNewPost = (e) =>{
+      e.preventDefault();
+      const newPost = {
+          id: Date.now(),
+          title,
+          body
+      }
+      console.log(newPost);
+      setPost([...posts, newPost]);
+  }
 
   return (
     <div className="App">
-        <PostList posts={posts} title= "Список постов 1"/>
-        <PostList posts={posts2} title= "Список постов 2"/>    
+        <form>
+            {/*Управляемый компонент */}
+            <MyInput 
+                  type="text" 
+                  placeholder='Название' 
+                  value = {title}
+                  onChange= {e => setTitle(e.target.value)}
+            />
+            <MyInput 
+                type="text" 
+                placeholder='Описание'
+                value = {body}
+                onChange = {e => setBody(e.target.value)}/>
+            <MyButton onClick={addNewPost}>Создать пост</MyButton>
+        </form>
+        <PostList posts={posts} title= "Список постов 1"/>   
     </div>
   );
 }
