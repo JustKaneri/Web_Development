@@ -1,43 +1,38 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import PostForm from "./components/PostForm";
 import PostList from "./components/PostList";
 import MyInput from "./components/UI/input/MyInput";
 import PostFilter from "./components/PostFilter";
-import MySelect from "./components/UI/select/MySelect";
 
 import "./styles/App.css";
 import MyModalWindow from "./components/UI/MyModalWindow/MyModalWindow";
 import MyButton from "./components/UI/button/MyButton";
+import { usePosts } from "./hooks/usePost";
+import PostsSevice from "./API/PostsService";
+
 
 function App() {
 
-  const [posts, setPosts] = useState([
-    { id: 1, title: "JS", body: "discription" },
-    { id: 2, title: "C#", body: "fiscription" },
-    { id: 3, title: "C++", body: "ziscription" },
-    { id: 4, title: "Rybu", body: "qiscription" },
-  ]);
+  const [posts, setPosts] = useState([]);
 
   const [filter,setFilter] = useState({sort:'',query:''});
   const  [modal,setModal] = useState(false);
+  const sortedAndSearchPosts = usePosts(posts,filter.sort,filter.query);
 
-  const sortedPost = useMemo(()=>{
-    if(filter.sort){
-      return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
-    }
-    else{
-      return posts;
-    }
-  },[filter.sort,posts]);
 
-  const sortedAndSearch = useMemo(()=>{
-      return sortedPost.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()));
-  },[filter.query,sortedPost]);
+  useEffect(()=>{
+    fetchPosts();
+  },[])
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
     setModal(false);
   };
+
+  async function fetchPosts(){
+     const posts = await PostsSevice.getAll();
+     setPosts(posts);
+  }
 
   const removePost = (post) => {
     setPosts(posts.filter((p) => p.id !== post.id));
@@ -45,6 +40,7 @@ function App() {
 
   return (
     <div className="App">
+      <MyButton onClick={()=> fetchPosts()}>Get</MyButton>
       <MyButton style = {{marginTop:'30px'}} onClick = {() => setModal(true)}>
         Создать пост
       </MyButton>
@@ -53,8 +49,8 @@ function App() {
       </MyModalWindow>
       <hr style={{ margin: "20px" }} />
       <PostFilter filter={filter} setFilter={setFilter}/>
-      {sortedAndSearch.length !== 0 ? (
-        <PostList remove={removePost} posts={sortedAndSearch} title="Список постов 1" />
+      {sortedAndSearchPosts.length !== 0 ? (
+        <PostList remove={removePost} posts={sortedAndSearchPosts} title="Список постов 1" />
       ) : (
         <h1 style={{ textAlign: "center" }}>Записей нет</h1>
       )}
