@@ -9,16 +9,16 @@ import MyModalWindow from "./components/UI/MyModalWindow/MyModalWindow";
 import MyButton from "./components/UI/button/MyButton";
 import { usePosts } from "./hooks/usePost";
 import PostsSevice from "./API/PostsService";
+import Loader from "./Loader/Loader";
 
 
 function App() {
 
   const [posts, setPosts] = useState([]);
-
   const [filter,setFilter] = useState({sort:'',query:''});
   const  [modal,setModal] = useState(false);
   const sortedAndSearchPosts = usePosts(posts,filter.sort,filter.query);
-
+  const [isPostLoading,setIsPostLoading] = useState(false);
 
   useEffect(()=>{
     fetchPosts();
@@ -30,8 +30,12 @@ function App() {
   };
 
   async function fetchPosts(){
-     const posts = await PostsSevice.getAll();
-     setPosts(posts);
+    setIsPostLoading(true);
+    setTimeout(async () => {
+      const posts = await PostsSevice.getAll();
+      setPosts(posts);
+      setIsPostLoading(false);
+    },1000);
   }
 
   const removePost = (post) => {
@@ -49,11 +53,10 @@ function App() {
       </MyModalWindow>
       <hr style={{ margin: "20px" }} />
       <PostFilter filter={filter} setFilter={setFilter}/>
-      {sortedAndSearchPosts.length !== 0 ? (
-        <PostList remove={removePost} posts={sortedAndSearchPosts} title="Список постов 1" />
-      ) : (
-        <h1 style={{ textAlign: "center" }}>Записей нет</h1>
-      )}
+      {isPostLoading 
+          ?<div style={{display: "flex", justifyContent:'center'}}><Loader/></div>
+          :<PostList remove={removePost} posts={sortedAndSearchPosts} title="Список постов 1" />
+      }
     </div>
   );
 }
