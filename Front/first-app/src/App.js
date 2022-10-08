@@ -12,6 +12,7 @@ import PostsSevice from "./API/PostsService";
 import Loader from "./Loader/Loader";
 import {useFetching } from './hooks/useFeatching';
 import {getPageCount, getPagesArray} from './utils/pages';
+import Pagination from "./components/UI/pagination/Pagination";
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
     setTotalPage(getPageCount(totalCount,limit));
   });
 
-  let pagesArray = getPagesArray(totalPage);
+  
 
   useEffect(()=>{
     fetchPosts();
@@ -68,13 +69,11 @@ function App() {
           :<PostList remove={removePost} posts={sortedAndSearchPosts} title="Список постов 1" />
       }
       <br></br>
-      {pagesArray.map(p =>
-        <MyButton key={p} 
-                  style={{margin:10}} 
-                  onClick={() => changePage(p)}>
-          {p}
-        </MyButton>
-      )}
+      <Pagination
+      totalPage={totalPage}
+      changePage = {changePage}
+      page ={page}
+      />
     </div>
   );
 }
