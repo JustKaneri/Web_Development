@@ -1,10 +1,22 @@
 import React from 'react';
+import Player from 'react-custom-player'
+import VideoFile from '../assets/video.mp4'
 
 const About = () => {
+
+    const video = {
+        src:VideoFile,
+        poster:''
+    }
+
     return (
-        <h1 style={{color:'black'}}>
-            Описание Чего либо
-        </h1>
+        <div>
+            <Player
+                video={video}
+            />
+        </div>
+        
+        
     );
 }
 

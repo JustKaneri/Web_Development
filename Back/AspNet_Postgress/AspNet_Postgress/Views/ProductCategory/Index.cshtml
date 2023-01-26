@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Product>
+
+<div>
+    <table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @item.name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+</div>
